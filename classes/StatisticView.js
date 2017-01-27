@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React from "react";
 import StatGraphic from "./svg/StatGraphic";
 import Roundlevel from "./svg/Roundlevel";

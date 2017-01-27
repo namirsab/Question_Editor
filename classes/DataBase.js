@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var dataBase = {
   rows: [
     {value: 1 , img : null , title: "book"},

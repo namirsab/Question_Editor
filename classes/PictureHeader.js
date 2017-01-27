@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React from "react";
 import IconLogo from "./svg/Icon";
 var def_img = "default.jpg";

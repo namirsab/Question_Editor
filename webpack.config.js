@@ -8,11 +8,11 @@ var config = {
   devtool: 'source-map',
   module: {
   preLoaders: [
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: 'jshint-loader'
-      // }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'jshint-loader'
+      }
    ],
   loaders: [
     {

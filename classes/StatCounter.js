@@ -1,9 +1,5 @@
-
+/*jshint esversion: 6 */
 function MaxMin(array,s){return array.length && array.reduce((a,b)=>{return Math[(s && 'max'||"min")](a,b);}) || 0;}
-
-
-
-
 export default function check_data(dataBase){
   var stat = {};
   stat.col = dataBase.columns.length;
