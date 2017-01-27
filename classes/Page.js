@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React from "react";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import AddButton from "./AddButton";
 import Row from "./Row";
 import Col from "./Col";
