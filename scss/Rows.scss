@@ -1,0 +1,10 @@
+.row {
+  .radio {
+    margin: auto;
+    padding: $point_size;
+    border: 2px solid gray;
+    border-radius: 20px;
+    background: none;
+    &.on{background: #e2f056 ;}
+  }
+}

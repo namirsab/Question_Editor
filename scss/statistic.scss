@@ -1,0 +1,16 @@
+$st_color: #4CAF50;
+.statistic{
+  ul li{
+    font-size: 14px;
+    display: flex;
+    color: #44978f;
+  }
+
+  .stats{
+    border-bottom: 1px solid $st_color;
+    min-width: 300px;
+    height: auto;
+    path{fill:$st_color;}
+  }
+
+}

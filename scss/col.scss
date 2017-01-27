@@ -1,0 +1,15 @@
+&.col .tab {
+  div{
+    width: $label_size;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    > input {padding: 10px 0px; text-align: center;}
+    .remove{
+      top: -30px;
+      left: 0px;
+      width: 100%;
+    }
+    &:hover .remove{ display: block;}
+  }
+}

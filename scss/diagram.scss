@@ -1,0 +1,23 @@
+$G_size: 40px;
+$fill: #8BC34A;
+
+.diagram{
+  position: relative;
+  width: $G_size;
+  height: $G_size;
+  margin-right: 10px;
+  .line,.none{
+    fill: $fill;
+    stroke: $fill;
+    stroke-width: 10;
+    fill-opacity: 0;
+  }
+  text{
+    font-size: 40px;
+    text-anchor: middle;
+    cursor: pointer;
+  }
+  .none{
+    stroke-opacity: 0.1;
+  }
+}
