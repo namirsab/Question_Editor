@@ -7,18 +7,25 @@ import QuestionImage from "./QuestionImage";
 import StatisticView from "./StatisticView";
 import StatCounter from "./StatCounter";
 import DataBase from "./DataBase";
+import IconLogo from "./svg/Icon";
 
 export default class Page extends React.Component {
   constructor(){ super(); this.state = DataBase.data;}
   edit_Col(i,a,v){this.setState(DataBase.edit({target:'columns',method:a,index:i,value:v}));}
   edit_row(i,a,v){ this.setState(DataBase.edit({target:'rows',method:a,index:i,value:v}));}
+  default(){this.setState(DataBase.reset());}
+  save(){this.setState(DataBase.save());}
  render() {
    console.log(this.state);
    var stat = StatCounter(this.state);
   return (
     <main>
       <section className="table" >
-          <ul>
+          <div className="data-manager" >
+            <button className='reset' onClick={this.default.bind(this)} ><IconLogo id="reset" dim="0 0 100 100"/>Reset</button>
+            <button className='save' onClick={this.save.bind(this)}  ><IconLogo id="save" dim="0 0 100 100"/>Save</button>
+          </div>
+          <ul className="matrix" >
            <li className="col" >
            <h1> </h1>
            <div className="tab" >

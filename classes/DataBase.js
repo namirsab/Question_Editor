@@ -2,8 +2,7 @@
 import img1  from "base64-inline-loader!./images/img1.jpg";
 import img2  from "base64-inline-loader!./images/img2.jpg";
 import img3  from "base64-inline-loader!./images/img3.jpg";
-
-var dataBase = {
+var def_data = {
   rows: [
     {value: 1 , img : img1 , title: "Book"},
     {value: 2 , img : img2 , title: "Table"},
@@ -20,6 +19,30 @@ var dataBase = {
     {img : null , title: "DarkOliveGreen"},
   ]
 };
+var dataBase = {};
+
+function reset(){
+  dataBase = (JSON.parse(JSON.stringify(def_data)));
+  localStorage.removeItem('myDatabase');
+  console.log(dataBase,def_data);
+  return dataBase ;
+}
+function save(){
+  localStorage.myDatabase =JSON.stringify(dataBase);
+  return dataBase ;
+}
+
+if(localStorage.myDatabase){
+  try{
+    dataBase = JSON.parse(localStorage.myDatabase);
+    if(!dataBase.rows.length || !dataBase.columns.length  ){ throw "myException"; }
+  }
+  catch(e){
+    reset();
+  }
+
+}else{reset();}
+
 function editDataBase (p){
   var target = dataBase[p.target];
   console.log(target,p);
@@ -43,4 +66,4 @@ function editDataBase (p){
 
   return dataBase;
 }
-module.exports = {edit: editDataBase , data : dataBase };
+module.exports = {edit: editDataBase , data : dataBase , reset: reset , save : save};
