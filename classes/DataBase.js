@@ -1,19 +1,25 @@
 /*jshint esversion: 6 */
+import img1  from "file-loader!./images/img1.jpg";
+import img2  from "file-loader!./images/img2.jpg";
+import img3  from "file-loader!./images/img3.jpg";
+import img4  from "file-loader!./images/img4.jpg";
+import img5  from "file-loader!./images/img5.jpg";
 var dataBase = {
   rows: [
-    {value: 1 , img : null , title: "book"},
-    {value: 2 , img : null , title: "table"},
-    {value: 3 , img : null , title: "car"},
-    {value: 1 , img : null , title: "apple james"},
-    {value: 2 , img : null , title: "airplanes"}
+    {value: 1 , img : img1 , title: "Book"},
+    {value: 2 , img : img2 , title: "Table"},
+    {value: 4 , img : img3 , title: "Car"},
+    {value: 2 , img : null , title: "Airplanes"},
+    {value: 6 , img : null , title: "Aadgets"}
   ],
   columns:[
-    {img : null , title: "red"},
-    {img : null , title: "green"},
-    {img : null , title: "Dark Gray"},
-    {img : null , title: "white"},
-    {img : null , title: "yellow"},
-    {img : null , title: "orange"},
+    {img : img3 , title: "Red"},
+    {img : img4 , title: "Green"},
+    {img : img1 , title: "Dark Gray"},
+    {img : img5 , title: "White"},
+    {img : img2 , title: "Yellow"},
+    {img : null , title: "Orange"},
+    {img : null , title: "DarkOliveGreen"},
   ]
 };
 
