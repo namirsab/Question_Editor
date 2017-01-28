@@ -19,51 +19,39 @@ var def_data = {
     {img : null , title: "DarkOliveGreen"},
   ]
 };
-var dataBase = {};
-
-function reset(){
-  dataBase = (JSON.parse(JSON.stringify(def_data)));
-  localStorage.removeItem('myDatabase');
-  console.log(dataBase,def_data);
-  return dataBase ;
-}
-function save(){
-  localStorage.myDatabase =JSON.stringify(dataBase);
-  return dataBase ;
-}
-
-if(localStorage.myDatabase){
-  try{
-    dataBase = JSON.parse(localStorage.myDatabase);
-    if(!dataBase.rows.length || !dataBase.columns.length  ){ throw "myException"; }
+class Database {
+  constructor() {
+    this.data = {};
+     if(localStorage.myDatabase){ this.checkLocalStorage();}else{this.reset();}
+     console.log(this);
   }
-  catch(e){
-    reset();
+  checkLocalStorage(){
+    try{
+      this.data = JSON.parse(localStorage.myDatabase);
+      if(!this.data.rows.length || !this.data.columns.length  ){ throw "myException"; }
+    }catch(e){this.reset();}
   }
-
-}else{reset();}
-
-function editDataBase (p){
-  var target = dataBase[p.target];
-  console.log(target,p);
-  if(target){
-    switch (p.method) {
-      case "add":
-        target.push({value: null , img : null , title: "col "+target.length });
-      break;
-      case "remove":
-        console.log(target,p);
-       if(target.length > 1){
-         target.splice(p.index,1)
-         if(p.target=="columns"){
-           dataBase.rows = dataBase.rows.map((e)=>{if(e.value == p.index){e.value = null; }else if(e.value > p.index){ e.value--;} ; return e;});
+  reset(){this.data = (JSON.parse(JSON.stringify(def_data))); localStorage.removeItem('myDatabase');return this.data ;}
+  save(){ localStorage.myDatabase =JSON.stringify(this.data);  return this.data ;}
+  edit (p){
+    var target = this.data[p.target];
+    if(target){
+      switch (p.method) {
+        case "add":
+          target.push({value: null , img : null , title: "col "+target.length });
+        break;
+        case "remove":
+         if(target.length > 1){
+           target.splice(p.index,1)
+           if(p.target=="columns"){
+             this.data.rows = this.data.rows.map((e)=>{if(e.value == p.index){e.value = null; }else if(e.value > p.index){ e.value--;} ; return e;});
+           }
          }
-       }
-      break;
-      default: target[p.index][p.method] = p.value;
+        break;
+        default: target[p.index][p.method] = p.value;
+      }
     }
+    return this.data;
   }
-
-  return dataBase;
 }
-module.exports = {edit: editDataBase , data : dataBase , reset: reset , save : save};
+module.exports = new Database();
