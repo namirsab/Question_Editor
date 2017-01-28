@@ -3,7 +3,7 @@ import React from "react";
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import AddButton from "./AddButton";
 import Row from "./Row";
-import Col from "./Col";
+import QuestionImage from "./QuestionImage";
 import StatisticView from "./StatisticView";
 import StatCounter from "./StatCounter";
 import DataBase from "./DataBase";
@@ -23,7 +23,7 @@ export default class Page extends React.Component {
            <h1> </h1>
            <div className="tab" >
            <ReactCSSTransitionGroup transitionName="myanimation" transitionEnterTimeout={500} transitionLeaveTimeout={300} >
-           { this.state.columns.map((e,i)=><Col {...e} edit={this.edit_Col.bind(this)} i={i} key={i} />) }
+           { this.state.columns.map((e,i)=><QuestionImage {...e} edit={this.edit_Col.bind(this)} i={i} key={i} />) }
            </ReactCSSTransitionGroup>
            <AddButton onClick={this.edit_Col.bind(this,0,'add')} />
            </div>
