@@ -11,6 +11,9 @@
     svg{
       height: 20px;
       padding: 5px 0px;
+      fill: #777;
+    }
+    &:hover svg {
       fill: #98d354;
     }
   }
